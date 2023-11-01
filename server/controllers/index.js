@@ -86,6 +86,7 @@ const hostPage3 = (req, res) => {
   res.render('page3');
 };
 
+// Function to render the page4 template
 const hostPage4 = async (req, res) => {
   try {
     const docs = await Dog.find({}).lean().exec();
@@ -247,6 +248,7 @@ const updateLast = (req, res) => {
   });
 };
 
+// setDog Method - Creates a dog from the form data submitted
 const setDog = async (req, res) => {
   if (!req.body.firstname || !req.body.lastname || !req.body.breed || !req.body.age) {
     return res.status(400).json({ error: 'firstname, lastname, breed, and age are all required' });
@@ -269,6 +271,7 @@ const setDog = async (req, res) => {
   }
 };
 
+// searchDog Method - Searches for a dog in the database via its name and updates the age by 1
 const searchDog = async (req, res) => {
   if (!req.query.name) {
     return res.status(400).json({ error: 'Name is required to perform a search' });
