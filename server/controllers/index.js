@@ -275,7 +275,7 @@ const searchDog = async (req, res) => {
   }
 
   try {
-    const doc = await Dog.findOneAndUpdate({ name: req.query.name }, { $ince: { age: 1 } });
+    const doc = await Dog.findOneAndUpdate({ name: req.query.name }, { $inc: { age: 1 } });
 
     if (!doc) {
       return res.status(404).json({ error: 'No dog found' });
